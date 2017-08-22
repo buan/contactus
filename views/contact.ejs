@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contact Us</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Contact Page</h1>
+    <p>Welcome to Contact Page</p>
+  </body>
+		<% if(locals.data)
+		{
+	%>
+	<p>FirstName is <%=data.fname%></p>
+	<p>LastName is <%=data.lname%></p>
+	<p>URL is <%=url%></p>
+	
+	<%
+		}
+	%>
+	
+	<form action="/contact" method="post">
+	
+		First Name<input type="text" name="fname"><br>
+		Last Name<input type="text" name="lname"><br>
+		<input type="submit">
+	
+	</form>
+
+</html>
