@@ -9,6 +9,12 @@ var index = require('./routes/index');
 var contact = require('./routes/contact');
 var users = require('./routes/users');
 
+var mongoose=require('mongoose');
+mongoose.connect('mongodb://admin:admin@ds153853.mlab.com:53853/users')
+  .then(() =>  console.log('DB connected succesfully'))
+  .catch((err) => console.error(err));
+ 
+
 var app = express();
 
 // view engine setup
@@ -26,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/contact', contact);
+app.use('/databaseapi', require('./routes/databaseapi'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
