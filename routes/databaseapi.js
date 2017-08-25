@@ -4,7 +4,6 @@ var router = express.Router();
 
 
 router.post('/', function(req, res, next) {
- 	console.log("in db");
 	
 	var models = require('../model/usermodel'); //call model for database
 	var adduser = new models({

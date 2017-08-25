@@ -14,13 +14,12 @@
 	<p>FirstName is <%=data.fname%></p>
 	<p>LastName is <%=data.lname%></p>
 	<p>URL is <%=url%></p>
-	<p><%=result%></p>
 	
 	<%
 		}
 	%>
-	<p><%=result%></p>
-	<form action="/databaseapi" method="post">
+	
+	<form action="/userscontrol/add" method="post">
 	
 		First Name<input type="text" name="fname"><br>
 		Last Name<input type="text" name="lname"><br>
