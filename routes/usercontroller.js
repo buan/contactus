@@ -6,7 +6,7 @@ var User = require('../model/usermodel');
 
 // CREATES A NEW USER
 router.post('/add', function (req, res) {
-   /* console.log(req.body);*/
+    console.log(req.body);
 	
 	 User.create({
             fname : req.body.fname,
@@ -38,6 +38,17 @@ router.put('/users/:id', function (req, res) {
 	User.findByIdAndUpdate({_id:req.params.id}).then(function(result){
 		User.findOne({_id:req.params.id}).then(function(result){
 		res.send(result);
+	});
+	
+        });
+    });
+
+
+router.get('/users/:lname', function (req, res) {
+   /*console.log(req.params.id);*/
+	User.findOne({lname:req.params.lname}).then(function(result){
+		/*res.send(result);*/
+        res.render('show',{details:result});
 	});
 	
 });
